@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="fz_cfp" translate="label" sortOrder="999">
+			<label>Call For Price</label>
+		</tab>
+		<section id="fz_cfp" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>Call For Price</label>
+			<tab>fz_cfp</tab>
+			<resource>FZ_CallForPrice::config_fz_callforprice</resource>
+			<group id="general" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Call For Price Configration</label>
+                <field id="enable_frontend" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable/Disable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="button_text" translate="label comment" type="text" sortOrder="0"  showInDefault="1" canRestore="1" showInWebsite="1" showInStore="1">
+                    <label>Call For Price Button Text</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enable_frontend">1</field>
+                    </depends>
+                </field>
+
+                <field id="send_email_cc" translate="label comment" type="text" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email cc</label>
+                    <validate>validate-email</validate>
+                    <depends>
+                        <field id="enable_frontend">1</field>
+                    </depends>
+                </field>
+
+                <field id="email_sender" translate="label comment" type="select" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email To</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                    <depends>
+                        <field id="enable_frontend">1</field>
+                    </depends>
+                </field>
+                <field id="customer_group" translate="label comment" type="multiselect" sortOrder="0"  showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Group</label>
+                    <source_model>Magento\Customer\Model\Customer\Attribute\Source\Group</source_model>
+                    <depends>
+                        <field id="enable_frontend">1</field>
+                    </depends>
+                </field>				
+			</group>
+		</section>
+	</system>
+</config>

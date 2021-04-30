@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="fz_callforprice_callforprice" resource="default" engine="innodb" comment="fz_callforprice_callforprice Table">
+		<column xsi:type="smallint" name="callforprice_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="callforprice_id"/>
+		</constraint>
+		<column name="customer_name" nullable="false" xsi:type="text" comment="Customer Name" />
+		<column name="customer_email" nullable="false" xsi:type="text" comment="Customer Email" />
+		<column name="customer_id" nullable="false" xsi:type="int" comment="Customer Id" identity="false" unsigned="true"/>
+		<column name="customer_telephone" nullable="false" xsi:type="text" comment="Customer Telephone" />
+		<column name="product_id" nullable="false" xsi:type="int" comment="Product Id" identity="false"/>
+		<column name="product_name" nullable="false" xsi:type="text" comment="Product Name" />
+		<column name="details" nullable="false" xsi:type="text" comment="Request Details" />
+		<column name="status" nullable="false" xsi:type="text" comment="Status"/>
+		<column name="qty" nullable="true" xsi:type="text" comment="Qty"/>
+		<column name="date_created" nullable="false" xsi:type="timestamp" comment="date_created" default="CURRENT_TIMESTAMP"/>
+		<column name="date_updated" nullable="false" xsi:type="timestamp" comment="date_updated" default="CURRENT_TIMESTAMP" on_update="true"/>
+		<index referenceId="FZ_CALLFORPRICE_FULLTEXT" indexType="fulltext">
+			<column name="customer_name"/>
+			<column name="customer_email"/>
+			<column name="product_name"/>
+			<column name="customer_telephone"/>
+		</index>
+	</table>
+</schema>

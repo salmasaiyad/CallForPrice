@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="FZ_CallForPrice::CallForPrice" title="CallForPrice" sortOrder="10">
+					<resource id="FZ_CallForPrice::CallForPrice_save" title="Save CallForPrice" sortOrder="10"/>
+					<resource id="FZ_CallForPrice::CallForPrice_delete" title="Delete CallForPrice" sortOrder="20"/>
+					<resource id="FZ_CallForPrice::CallForPrice_update" title="Update CallForPrice" sortOrder="30"/>
+					<resource id="FZ_CallForPrice::CallForPrice_view" title="View CallForPrice" sortOrder="40"/>
+				</resource>
+				<resource id="Magento_Backend::stores">
+					<resource id="Magento_Backend::stores_settings">
+						<resource id="Magento_Config::config">
+							<resource id="FZ_CallForPrice::config_fz_callforprice" title="fzCallfor"/>
+						</resource>
+					</resource>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>
