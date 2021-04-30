@@ -1,4 +1,4 @@
-# Mage2 Module FZ CallForPrice
+# Magento2 Module FZ CallForPrice
 
     ``fz/module-callforprice``
 
